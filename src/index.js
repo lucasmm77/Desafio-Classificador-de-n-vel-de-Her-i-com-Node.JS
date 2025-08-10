@@ -1,0 +1,80 @@
+//O CÓDIGO ESTÁ DEPOIS DOS COMENTÁRIOS
+
+/* # 1️⃣ Desafio Classificador de nível de Herói
+
+**O Que deve ser utilizado**
+
+- Variáveis
+- Operadores
+- Laços de repetição
+- Estruturas de decisões
+
+## Objetivo
+
+Crie uma variável para armazenar o nome e a quantidade de experiência (XP) de um herói, depois utilize uma estrutura de decisão para apresentar alguma das mensagens abaixo:
+
+Se XP for menor do que 1.000 = Ferro
+Se XP for entre 1.001 e 2.000 = Bronze
+Se XP for entre 2.001 e 5.000 = Prata
+Se XP for entre 5.001 e 7.000 = Ouro
+Se XP for entre 7.001 e 8.000 = Platina
+Se XP for entre 8.001 e 9.000 = Ascendente
+Se XP for entre 9.001 e 10.000= Imortal
+Se XP for maior ou igual a 10.001 = Radiante
+
+## Saída
+
+Ao final deve se exibir uma mensagem:
+"O Herói de nome **{nome}** está no nível de **{nivel}**" */
+
+
+
+
+//// O módulo 'readline' permite criar uma interface para ler dados de um fluxo de entrada (como o terminal).
+const readline = require('readline');
+
+// Cria a interface para ler a entrada e mostrar a saída no terminal
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// Começa fazendo a primeira pergunta (nome do herói)
+rl.question('Qual é o nome do Herói? ', (nomeHeroi) => {
+  // Após o usuário digitar o nome, faz a segunda pergunta (XP)
+  rl.question('Qual a quantidade de XP do Herói? ', (xpString) => {
+    // Converte a string de XP para um número
+    let xp = parseInt(xpString);
+
+    let nivel;
+
+    // Lógica para determinar o nível com base no XP
+    if (xp <= 1000) {
+      nivel = "Ferro";
+    } else if (xp > 1000 && xp <= 2000) {
+      nivel = "Bronze";
+    } else if (xp > 2000 && xp <= 5000) {
+      nivel = "Prata";
+    } else if (xp > 5000 && xp <= 7000) {
+      nivel = "Ouro";
+    } else if (xp > 7000 && xp <= 8000) {
+      nivel = "Platina";
+    } else if (xp > 8000 && xp <= 9000) {
+      nivel = "Ascendente";
+    } else if (xp > 9000 && xp <= 10000) {
+      nivel = "Imortal";
+    } else if (xp >= 10000) {
+      nivel = "Radiante";
+    } else {
+      nivel = "Erro";
+    }
+
+    // Exibe o resultado no console
+    console.log(`\nO Herói de nome ${nomeHeroi} está no nível de ${nivel}`);
+    
+    // Fecha a interface de leitura no final
+    rl.close();
+  });
+});
+
+
